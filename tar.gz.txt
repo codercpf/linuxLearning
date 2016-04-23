@@ -1,0 +1,33 @@
+1.tar 后基本命令：
+   x:解压
+   v:复杂输出，即处理过程中输出相关信息
+   f:指定文件，对普通文件操作
+   z:gz格式，调用gzip来处理压缩文档——————与x连用完成解压
+   Z:调用compress处理压缩文档——————与x连用完成解压
+压缩：
+   c:建立新的归档文件
+   r:向归档文件末尾追加文件
+   z:调用gzip来压缩归档文件
+   Z:调用compress来压缩归档文件
+
+示例：(有x为解压)
+   将当前目录下所有.txt文件打包压缩,归档到this.tar.gz:
+   # tar czvf this.tar.gz ./*.txt
+   将当前目录的this.tar.gz解压到当前目录：
+   # tar xzvf this.tar.gz ./
+
+2.zip文件基本操作命令：
+  解压：unzip 
+示例：# unzip （-o） wroot.zip（-d newdir）  
+     将当前目录下wroot.zip中的文件解压——默认到当前目录，参数 -o表示不提示，解压后有重名文件时覆盖源文件（参数-d后面跟解压目录，上例解压到newdir文件夹中）
+     # unzip -v large.zip  不解压缩，只看看里面包含那些文件
+     # unzip -t all.zip  查看文件是否为完整的压缩文件（是否下载完整等）
+     # unzip -j large.zip 把large.zip中的所有文件解压到第一级目录
+     # unzip abc\*.zip (-d newdir) 把当前目录下的abc01.zip,abc02.zip,abc03.zip同时解压到当前目录（或指定目录中）
+  压缩：zip
+示例：# zip -r text.zip (text.txt) dirname
+     将当前目录中的text.txt和子目录dirname中的所有文件，压缩到当前目录的text.zip文件中。参数-r意为递归处理，将dirname目录中的所有内容都压缩。
+     # zip -d text.zip read.txt 删除当前目录中压缩文件text.zip中的read.text
+     # zip -m text.zip ./reinfo.txt 向text.zip压缩包中添加新文件reinfo.txt
+
+
