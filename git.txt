@@ -1,1 +1,22 @@
+1、查看分支：git branch
+   创建分支：git branch <name>
+   切换分支：git checkout <name>
+   创建并切换分支：git checkout -b <name>
+   合并某分支到当前分支：git merge <name>
+   删除分支：git branch -d <name>
+   
+2、查看远程分支：git branch -r
+   查看所有分支（本地+远程）git branch -a
+   
+3、推送：
+  git push origin master
 
+例子：当甲创建一个分支ui_company后，推送到远程仓库上，但并未与master合并（可能这时远程仓库并没有master）；如果乙想要clone甲推送的内容，必须从master中clone；可采取如下步骤：
+    git branch -a
+        remotes/origin/ui_company
+    git checkout remotes/origin/ui_company    //这一步切换到远程分支上
+    git push origin master                    //将远程分支ui_company的内容推送到远程master分支上
+  这时，远程仓库就有了master分支，乙clone远程master分支的内容即可。
+  
+以上例子可用 git pull命令实现：git pull origin ui_company:master  //取回origin主机的ui_company分支，并与本地master合并。
+    
